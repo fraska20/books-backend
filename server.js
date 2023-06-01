@@ -6,7 +6,6 @@ var bodyParser = require("body-parser"); //used to parse details from page
 // fix cors issue -cross origin resource sharing
 var cors = require("cors"); // used as a middleware
 var jwt = require("jsonwebtoken");
-const { response } = require("express");
 
 //json parser
 var jsonParser = bodyParser.json();
@@ -138,6 +137,6 @@ app.get("/", (req, res) => {
   res.send("<h1>Welcome Page</h1>");
 });
 
-app.listen(9000, () => {
+app.listen(process.env.SERVER_PORT, () => {
   console.log("server started");
 });
