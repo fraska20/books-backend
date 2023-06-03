@@ -47,9 +47,8 @@ function verifyToken(req, res, next) {
 }
 
 app.post("/login", jsonParser, (req, res) => {
-  if (req.body.username == null || req.body.password == null) {
+  if (req.body.username == undefined || req.body.password == undefined) {
     res.status(500).send({ error: "authentication failed" });
-    return
   }
   let username = req.body.username;
   let password = req.body.password;
